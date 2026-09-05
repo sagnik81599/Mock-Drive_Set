@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee details</title>
+</head>
+
+<style>
+    .container{
+        width:700px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+    }
+</style>
+<body>
+    <div class="container">
+    <h1>Employee Details</h1>
+    <input type="text" id="name" placeholder="Enter the name">
+    <input type="text" id="task" placeholder="Enter the task">
+    <button onclick ="addEventListener()">Add Employee</button><br><br>
+
+
+
+    <p id="error"></p>
+
+    <table id="" border="1">
+<thead>
+    <tr>
+        <th>Employee </th>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody id="tasktable">
+    </tbody>
+    </table>
+
+    <p> Total Task: <span id="count">0</span></p>
+    </div>
+
+
+</body>
+</html>
