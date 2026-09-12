@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button example</title>
+</head>
+<style>
+    /* button{
+        border-radius:25px;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+    } */
+
+    button {
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 5px auto;
+}
+
+button:hover{
+    background-color: #17561a
+}
+    #text{
+        display:none;
+
+    }
+    p{
+        display:block;
+        text-align:center;
+    }
+
+
+    
+</style>
+<body>
+    <button onclick="Showmessage()" >Submit</button>
+         <button id="toggleBtn" onclick="toggleText()" >Show message</button>
+            <!-- <button onclick="" ></button>
+                <button onclick="" ></button>  -->
+
+                <p id="text">Hello ! This is a simple message.</p>
+                <script>
+                 function Showmessage(){
+                    alert("button clicked");
+                 }
+
+                 function toggleText(){
+                    const text = document.getElementById("text");
+                    const btn = document.getElementById("toggleBtn");
+                    if(text.style.display === "none"){
+                        text.style.display ="block";
+                        btn.textContent = "Hide Text";
+
+                    }
+                    else{
+                        text.style.display = "none";
+                        btn.textContent = "Show message";
+                    }
+
+
+                 }
+
+                    
+                 
+                </script>
+</body>
+</html>

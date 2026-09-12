@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Genarator</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.quote-container {
+    background-color: white;
+    width: 500px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text {
+    font-size: 24px;
+    font-style: italic;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: #2864d7;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1749a5;
+}
+</style>
+<body>
+   <div class="quote-container">
+
+    <p id="quoteDisplay" class="quote-text">
+        Click the button to show a quote
+    </p>
+  
+
+    <button id="quoteBtn" onclick="generateQuote()">
+        Show Random Quote
+    </button>
+
+</div>
+
+<script>
+
+    let quoteInput = document.getElementById("quoteInput");
+
+    function generateQuote(){
+        const quote =[
+            "Hard work beats talent.",
+            "Never give up.",
+            "Believe in yourself.",
+            "Success takes time."
+        ];
+
+        let randonI = Math.floor(Math.random() * quote.length);
+        document.getElementById("quoteDisplay").textContent = quote[randonI];
+    }
+</script>
+</body>
+</html>
