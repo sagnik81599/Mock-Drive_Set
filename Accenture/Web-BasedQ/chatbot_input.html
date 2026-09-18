@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        #chatbox {
+            width: 400px;
+            margin: 50px auto;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        /* Bot message */
+        .bot {
+            background-color: lightgray;
+        }
+
+        /* User message */
+        .user {
+            background-color: #cfe2ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="chatbox">
+
+    <!-- 1. Welcome message is a BOT message -->
+    <div class="message bot">
+        Hello! How can I help you?
+    </div>
+
+    <input type="text" id="userInput">
+    <button onclick="sendMessage()">Send</button>
+
+</div>
+
+<script>
+
+function sendMessage() {
+
+    let input = document.getElementById("userInput");
+
+    let text = input.value;
+
+    if (text == "") {
+        return;
+    }
+
+    // User message
+    let user = document.createElement("div");
+
+    user.className = "message user";
+
+    user.innerText = text;
+
+    document.getElementById("chatbox").appendChild(user);
+
+
+    // Bot response
+    let bot = document.createElement("div");
+
+    bot.className = "message bot";
+
+    bot.innerText = "Thanks for your message!";
+
+    document.getElementById("chatbox").appendChild(bot);
+
+
+    // Clear input
+    input.value = "";
+}
+
+</script>
+
+</body>
+</html>
