@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+
+<body>
+
+    <form id="myForm" style="height: 300px; width: 400px;">
+
+        <input type="text" id="name" placeholder="Enter the name">
+        <br><br>
+
+        <input type="password" id="pass" placeholder="Enter the password">
+        <br><br>
+
+        <input type="password" id="pass1" placeholder="Retype password">
+        <br><br>
+
+        <p id="msg"></p>
+
+        <button type="submit" id="submitBtn">Click Here</button>
+
+    </form>
+
+
+    <script>
+
+      
+        let myForm = document.getElementById("myForm");
+
+        // Add submit event
+        myForm.addEventListener("submit", function(event) {
+
+            // Stop page from refreshing
+            event.preventDefault();
+
+            // Get input values
+            let name = document.getElementById("name").value;
+
+            let pass = document.getElementById("pass").value;
+
+            let pass1 = document.getElementById("pass1").value;
+
+            let msg = document.getElementById("msg");
+
+
+            // Check name
+            if (name === "") {
+
+                msg.textContent = "Please enter name";
+
+                return;
+            }
+
+
+            // Check password
+            if (pass === "") {
+
+                msg.textContent = "Please enter password";
+
+                return;
+            }
+
+
+            // Check confirm password
+            if (pass1 === "") {
+
+                msg.textContent = "Please retype password";
+
+                return;
+            }
+
+
+            // Compare passwords
+            if (pass !== pass1) {
+
+                msg.textContent = "Passwords do not match";
+
+                return;
+            }
+
+
+            // Everything is correct
+            msg.textContent = "Form submitted successfully!";
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```

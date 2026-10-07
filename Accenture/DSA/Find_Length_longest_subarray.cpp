@@ -25,5 +25,5 @@ int main(){
         maximum = max(maximum,current);
 
     }
-    cout<<"maximun is :",maximum;
+    cout<<"maximun is :"<<maximum;
 }

@@ -3,46 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee details</title>
+    <title>Employee Details</title>
+
+    <style>
+        .container {
+            width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+        }
+
+        input {
+            padding: 10px;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
 </head>
 
-<style>
-    .container{
-        width:700px;
-        margin: 50px auto;
-        background: #fff;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
-    }
-</style>
 <body>
+
     <div class="container">
-    <h1>Employee Details</h1>
-    <input type="text" id="name" placeholder="Enter the name">
-    <input type="text" id="task" placeholder="Enter the task">
-    <button onclick ="addEventListener()">Add Employee</button><br><br>
 
+        <h1>Employee Details</h1>
 
+        <input type="text" id="name" placeholder="Enter the name">
 
-    <p id="error"></p>
+        <input type="text" id="task" placeholder="Enter the task">
 
-    <table id="" border="1">
-<thead>
-    <tr>
-        <th>Employee </th>
-        <th>Task</th>
-        <th>Status</th>
-        <th>Action</th>
-    </tr>
-    </thead>
+        <button id="addEmployee">Add Employee</button>
 
-    <tbody id="tasktable">
-    </tbody>
-    </table>
+        <br><br>
 
-    <p> Total Task: <span id="count">0</span></p>
+        <p id="error"></p>
+
+        <table border="1">
+
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="tasktable">
+            </tbody>
+
+        </table>
+
+        <p>
+            Total Task: <span id="count">0</span>
+        </p>
+
     </div>
 
+
+    <script>
+
+        // Get HTML elements
+        let nameInput = document.getElementById("name");
+        let taskInput = document.getElementById("task");
+
+        let addButton = document.getElementById("addEmployee");
+
+        let taskTable = document.getElementById("tasktable");
+
+        let count = document.getElementById("count");
+
+        let error = document.getElementById("error");
+
+
+        // Add employee button click
+        addButton.addEventListener("click", function () {
+
+            // Get input values
+            let name = nameInput.value;
+            let task = taskInput.value;
+
+
+            // Check empty input
+            if (name === "" || task === "") {
+
+                error.textContent = "Please enter employee name and task.";
+
+                return;
+            }
+
+
+            // Remove error message
+            error.textContent = "";
+
+
+            // Create table row
+            let row = document.createElement("tr");
+
+
+            // Create employee cell
+            let employeeCell = document.createElement("td");
+
+            employeeCell.textContent = name;
+
+
+            // Create task cell
+            let taskCell = document.createElement("td");
+
+            taskCell.textContent = task;
+
+
+            // Create status cell
+            let statusCell = document.createElement("td");
+
+            statusCell.textContent = "Pending";
+
+
+            // Create action cell
+            let actionCell = document.createElement("td");
+
+
+            // Create delete button
+            let deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "Delete";
+
+
+            // Add delete button to action cell
+            actionCell.appendChild(deleteButton);
+
+
+            // Add cells to row
+            row.appendChild(employeeCell);
+
+            row.appendChild(taskCell);
+
+            row.appendChild(statusCell);
+
+            row.appendChild(actionCell);
+
+
+            // Add row to table
+            taskTable.appendChild(row);
+
+
+            // Update count
+            count.textContent = taskTable.children.length;
+
+
+            // Clear inputs
+            nameInput.value = "";
+
+            taskInput.value = "";
+
+
+            // Delete button event
+            deleteButton.addEventListener("click", function () {
+
+                row.remove();
+
+                count.textContent = taskTable.children.length;
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>

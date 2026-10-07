@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todo List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            width: 400px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Todo List</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+
+    <button id="addTask">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+
+    <script>
+
+        const taskInput = document.getElementById('taskInput');
+        const addTaskButton = document.getElementById('addTask');
+        const taskList = document.getElementById('taskList');
+
+
+        addTaskButton.addEventListener('click', function() {
+
+            const task = taskInput.value;
+
+            if (task === '') {
+                return;
+            }
+
+            const li = document.createElement('li');
+
+            li.textContent = task;
+
+            taskList.appendChild(li);
+
+            taskInput.value = '';
+
+        });
+
+    </script>
+
+</body>
+
+</html>

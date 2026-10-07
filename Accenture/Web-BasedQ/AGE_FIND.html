@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratice</title>
+</head>
+<body>
+    <input type="text" id="n">
+    <button id="b1">click</button>
+    <p id="result"></p>
+
+
+    <script>
+    
+   const age = document.getElementById('n');
+   const btn = document.getElementById('b1');
+   const result = document.getElementById('result');
+
+   btn.addEventListener('click',function(){
+    const value = age.value;
+    if(value === "" || isNaN(value)){
+        result.innerText = "InValid  number";
+        result.style.color="red";
+    }
+    else if (value >= 18){
+        result.innerText = "You are eligible";
+        result.style.color="green";
+    }
+    else{
+        result.innerText = "You are not eligible";
+        result.style.color="red";
+    }
+   });
+  
+
+   
+
+
+    </script>
+
+</body>
+</html>

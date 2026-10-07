@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+</head>
+<body>
+
+    <h2 id="result">0</h2>
+
+    <button id="minus">-</button>
+    <button id="plus">+</button>
+
+    <script>
+
+        // 1. Store the count
+        let count = 0;
+
+        // 2. Get HTML elements
+        const result = document.getElementById("result");
+        const plus = document.getElementById("plus");
+        const minus = document.getElementById("minus");
+
+        // 3. When + button is clicked
+        plus.addEventListener("click", function() {
+
+            count = count + 1;
+
+            result.innerText = count;
+
+        });
+
+        // 4. When - button is clicked
+        minus.addEventListener("click", function() {
+
+            count = count - 1;
+
+            result.innerText = count;
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
